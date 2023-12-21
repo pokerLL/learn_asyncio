@@ -7,7 +7,11 @@ init:
 
 commit:
 	git add .
-	git commit -m 'update'
+	@if [ "$(msg)" != "" ]; then \
+		git commit -m "$(msg)"; \
+	else \
+		git commit -m "update"; \
+	fi
 
 
 push: commit
